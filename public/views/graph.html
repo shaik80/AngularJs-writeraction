@@ -1,0 +1,66 @@
+<div class="container">
+  <h1 class="text-center">Stock comparison</h1>
+  <div class="row row-cols-2">
+    <div class="col">
+      <label>First Date: </label>
+      <input
+        type="date"
+        name="first_start_Date"
+        id="firstStartDate"
+        ng-model="firstStartDate"
+        min="2007-01-01"
+        max="2011-12-31"
+      />
+      {{firstStartDate1|date:'yyyy-MM-dd'}}
+      <input
+        type="date"
+        name="first_end_Date"
+        id="firstEndDate"
+        ng-model="firstEndDate"
+        min="2007-01-01"
+        max="2011-12-31"
+      />
+    </div>
+    <div class="col">
+      <label>Secound Date: </label>
+      <input
+        type="date"
+        name="secound_start_Date"
+        id="secoundStartDate"
+        ng-model="secoundStartDate"
+        min="2007-01-01"
+        max="2011-12-31"
+      />
+      <input
+        type="date"
+        name="secound_end_Date"
+        id="secoundEndDate"
+        ng-model="secoundEndDate"
+        min="2007-01-01"
+        max="2011-12-31"
+      />
+    </div>
+    <div class="col mt-5">
+      <first-Chart-App
+        start-date="firstStartDate|date:'yyyy-MM-dd'"
+        end-date="firstEndDate|date:'yyyy-MM-dd'"
+        data="StockGraph.data"
+      >
+        <svg></svg>
+      </first-Chart-App>
+      {{StockGraph.firstStartDate}} {{StockGraph.firstEndDate}}
+    </div>
+    <div class="col mt-5">
+      <first-Chart-App
+        start-date="secoundStartDate|date:'yyyy-MM-dd'"
+        end-date="secoundEndDate|date:'yyyy-MM-dd'"
+        data="StockGraph.data"
+      >
+        <svg></svg>
+      </first-Chart-App>
+      {{StockGraph.secoundStartDate}},{{StockGraph.secoundStartDate}}
+    </div>
+  </div>
+</div>
+
+<!-- {{stock}} -->

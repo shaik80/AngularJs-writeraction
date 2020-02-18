@@ -1,0 +1,25 @@
+<div ng-init="Blogs.allBlog()">
+  <!-- ng-repeat="Blog in Blogs.allBlog()" ng-init="Blogs.allBlog()" {{ Blog }} -->
+    <div class="shadow-lg p-3 mb-5 bg-white rounded text-center">Total Blogs: {{Blogs.blogs.length }}</div>
+  <div
+    class="card text-center mb-5 bg-dark text-white"
+    ng-repeat="Blog in Blogs.blogs"
+  >
+    <div class="card-header border-secondary">
+      <!-- {{Blogs.books}} -->
+      <h4>{{Blog.title}}</h4>
+      <div>
+        <span ng-repeat="tags in Blog.tags" class="badge badge-secondary m-2">{{tags}}</span></h6>
+      </div>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{Blog.subTitle}}</h5>
+      <p class="card-text">
+        {{Blog.blogBody}}
+      </p>
+      <a href="" class="btn btn-primary">VIEW</a>
+    <a href="#!/edit/{{Blog._id}}" class="btn btn-primary">EDIT</a>
+      <a ng-click="Blogs.deleteBlog(Blog._id)" class="btn btn-primary">DELETE</a>
+    </div>
+  </div>
+</div>
