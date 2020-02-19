@@ -28,12 +28,11 @@ myApp.directive("firstChartApp", [
             startDate = scope.startDate;
             endDate = scope.endDate;
             value = scope.data;
-
+            refreshSvg($element[0]);
             chartLine($element[0], value, startDate, endDate);
           },
           true
         );
-        refreshSvg($element[0]);
       }
     };
   }
@@ -44,6 +43,7 @@ refreshSvg = tagname => {
     .select("svg")
     .remove();
 };
+
 function chartLine(tagName, value, startDate, endDate) {
   if (value) {
     let data = value.data
@@ -116,8 +116,8 @@ function chartLine(tagName, value, startDate, endDate) {
       .attr("stroke-width", 1.5)
       .attr("stroke-linejoin", "round")
       .attr("stroke-linecap", "round")
-      .attr("d", line);
-
+      .attr("d", line)
+      
     const tooltip = svg.append("g");
 
     bisect = mx => {
